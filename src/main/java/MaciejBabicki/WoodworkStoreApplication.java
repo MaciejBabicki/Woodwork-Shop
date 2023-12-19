@@ -1,0 +1,13 @@
+package MaciejBabicki;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class WoodworkStoreApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(WoodworkStoreApplication.class, args);
+	}
+
+}
