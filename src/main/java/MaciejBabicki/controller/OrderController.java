@@ -27,25 +27,25 @@ class OrderController {
     }
 
     @GetMapping("/increase/{woodProductId}")
-    public String increaseExactProduct(@PathVariable("woodProductId") Long woodProductId){
+    public String increaseExactProduct(@PathVariable("woodProductId") Long woodProductId) throws Exception {
         shoppingCartService.Operation(woodProductId, WoodProductOperations.INCREASE);
         return "shoppingCartPage";
     }
 
     @GetMapping("/decrease/{woodProductId}")
-    public String decreaseExactProduct(@PathVariable("woodProductId") Long woodProductId){
+    public String decreaseExactProduct(@PathVariable("woodProductId") Long woodProductId) throws Exception {
         shoppingCartService.Operation(woodProductId, WoodProductOperations.DECREASE);
         return "shoppingCartPage";
     }
      @GetMapping("/remove/{woodProductId}")
-    public String removeAllProductFromShoppingCart(@PathVariable("woodProductId") Long woodProductId){
+    public String removeAllProductFromShoppingCart(@PathVariable("woodProductId") Long woodProductId) throws Exception {
         shoppingCartService.Operation(woodProductId, WoodProductOperations.REMOVE);
         return "shoppingCartPage";
     }
 
-    @GetMapping("AllProductsInShoppingCart")
+    @GetMapping("Summary")
     public String showAllProductsInShoppingCart(){
-        return "AllProductsInShoppingCart";
+        return "Summary";
     }
 
     @PostMapping("/saveorder")

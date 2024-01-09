@@ -10,35 +10,44 @@ public class ShoppingCartProduct {
 
     private  final WoodProduct woodProduct;
     private int counter;
-    private BigDecimal price;
+    private BigDecimal price= BigDecimal.valueOf(0);
 
-    ShoppingCartProduct(WoodProduct woodProduct) {
+    public ShoppingCartProduct(WoodProduct woodProduct) {
         this.woodProduct = woodProduct;
-        this.counter = 0;
+        this.counter = 1;
         this.price = woodProduct.getPrice();
     }
 
-    public void increaseCounter(){
+    public void increaseCounter() {
         counter++;
         recalculate();
     }
 
-    public void decreaseCounter(){
+    public void decreaseCounter() {
         if (counter>0) {
             counter--;
             recalculate();
         }
     }
 
+    //price per unit x units
     private void recalculate() {
-        price= woodProduct.getPrice().multiply(new BigDecimal(counter));
+        if (price!=null) {
+            price = woodProduct.getPrice().multiply(new BigDecimal(counter));
+        }else {
+            throw new IllegalStateException("price can't be null");
+        }
     }
 
+
+
+    //deleting all product from cart
     public boolean isNoProducts(){
         return counter == 0;
     }
 
-    public boolean idEquals(WoodProduct product) {
-        return this.woodProduct.getId().equals(product.getId());
+    // woodProduct id = ShoppingCartProduct woodProduct id
+    public boolean idEquals(WoodProduct woodProduct) {
+        return this.woodProduct.getId().equals(woodProduct.getId());
     }
 }

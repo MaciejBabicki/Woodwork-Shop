@@ -18,7 +18,7 @@ public class WoodProduct {
     @GeneratedValue
     private Long id;
     private String type;
-    private BigDecimal price;
+    private BigDecimal price= BigDecimal.valueOf(0);
     private String photoPath;
 
     public WoodProduct(String type, BigDecimal price, String photoPath) {

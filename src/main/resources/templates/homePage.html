@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WoodworkStore</title>
+    <!-- <link rel ="stylesheet" type="text/css" href="/static/style.css"> -->
+</head>
+    <body>
+        <div id="root">
+            <!-- <div class="container">Woodwork Store</div> -->
+        </div>
+
+        <script src="https://unpkg.com/react@17.0.1/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@17.0.1/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+
+        <script type = "text/babel">
+            const rootEl = document.getElementById('root');
+            const WoodworkEl = React.createElement('h1', {}, 'Woodwork');
+
+
+
+
+            /* console.log(rootEl); */
+            /* const newEl = document.createElement('div');
+            newEl.className = 'container';
+            newEl.innerHTML = 'Woodwork Store';
+            console.log(newEl);
+            rootEl.append(newEl); */
+
+            const element = (
+                <div className="container">
+                <h1>Woodwork</h1>
+                <h2>Store</h2>
+                </div>
+            );
+            ReactDOM.render(element, rootEl);
+            
+            
+
+
+            // Adres URL endpointu backendowego, z którego pobieramy dane
+            const backendEndpoint = 'http://localhost:8080/homePage';
+
+            // Wykonanie żądania GET do backendu
+            fetch(backendEndpoint)
+            .then(response => response.json()) // Parsowanie odpowiedzi do formatu JSON
+            .then(data => {
+                // Tutaj możesz wykorzystać pobrane dane
+                const backendVariable = data.someKey; // Załóżmy, że dane są w formie obiektu JSON i klucz to "someKey"
+
+                // Dalsze operacje na zmiennej backendVariable
+                console.log(backendVariable);
+                })
+            .catch(error => {
+                console.error('Błąd podczas pobierania danych z backendu:', error);
+            });
+        </script>
+    </body>
+</html>

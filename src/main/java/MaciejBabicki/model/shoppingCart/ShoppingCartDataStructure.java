@@ -8,6 +8,6 @@ import java.util.List;
 @Data
 public class ShoppingCartDataStructure {
     public List<ShoppingCartProduct> productsToBuy = new ArrayList<>();
-    int counter = 0;
+    int counter = 1;
     protected BigDecimal sum = BigDecimal.ZERO;
 }

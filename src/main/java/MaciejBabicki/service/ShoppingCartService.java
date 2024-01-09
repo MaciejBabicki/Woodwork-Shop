@@ -25,7 +25,7 @@ private final ShoppingCart cart;
         return woodProductRepository.findAll();
     }
 
-    public void Operation(Long woodProductId, WoodProductOperations operation){
+    public void Operation(Long woodProductId, WoodProductOperations operation) {
         Optional<WoodProduct> optionalWoodProduct = woodProductRepository.findById(woodProductId);
         if (optionalWoodProduct.isPresent()){
             WoodProduct woodProduct = optionalWoodProduct.get();

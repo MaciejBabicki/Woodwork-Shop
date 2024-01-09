@@ -25,7 +25,7 @@ public class OrderService {
     public void saveOrder(OrderDTO dto){
         Order order = OrderMapper.mapToOrder(dto);
         orderRepository.save(order);
-        orderProductRepository.saveAll(OrderMapper.mapToOrderProduct(cart, order));
+        orderProductRepository.saveAll(OrderMapper.mapToOrderedProduct(cart, order));
         cart.deleteProductsFromCart();
     }
 }

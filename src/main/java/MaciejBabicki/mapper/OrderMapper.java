@@ -13,6 +13,7 @@ import java.util.List;
 
 public class OrderMapper {
 
+    //Mapping the OrderDTO to Order
     public static Order mapToOrder(OrderDTO orderDTO){
         return Order.builder()
                 .firstName(orderDTO.getFirstName())
@@ -24,7 +25,8 @@ public class OrderMapper {
                 .build();
     }
 
-    public static List<OrderedProduct>mapToOrderProduct(ShoppingCartDataStructure cart, Order order){
+    //Converting data from the shopping cart to list of objects OrderedProduct
+    public static List<OrderedProduct> mapToOrderedProduct(ShoppingCartDataStructure cart, Order order){
         List<OrderedProduct> orderedProducts = new ArrayList<>();
         for(ShoppingCartProduct ii: cart.getProductsToBuy()){
             orderedProducts.add(new OrderedProduct(order.getOrderId(), ii.getWoodProduct().getId(), ii.getCounter()));
